@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "trading-data": {
+      "url": "http://localhost:8001/mcp/v1",
+      "transport": "streamable-http"
+    }
+  }
+}
