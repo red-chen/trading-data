@@ -6,23 +6,24 @@ class Settings(BaseSettings):
     """Application settings"""
     
     # API Settings
-    api_host: str = "0.0.0.0"
-    api_port: int = 8000
-    api_title: str = "Trading Data API"
-    api_version: str = "1.0.0"
-    api_description: str = "API for stock and cryptocurrency market data"
+    API_HOST: str = "0.0.0.0"
+    API_PORT: int = 8000
+    API_TITLE: str = "Trading Data API"
+    API_VERSION: str = "1.0.0"
+    API_DESCRIPTION: str = "API for stock and cryptocurrency market data"
     
     # MCP Settings
-    mcp_server_name: str = "trading-data-mcp"
-    mcp_host: str = "0.0.0.0"
-    mcp_port: int = 8001
+    MCP_SERVER_NAME: str = "trading-data-mcp"
+    MCP_HOST: str = "0.0.0.0"
+    MCP_PORT: int = 8001
     
     # CORS
-    cors_origins: list = ["*"]
+    CORS_ORIGINS: list = ["*"]
     
     class Config:
         env_file = ".env"
         case_sensitive = False
+        extra = "ignore"  # Ignore extra fields from .env
 
 
 settings = Settings()

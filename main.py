@@ -15,14 +15,14 @@ from config import settings
 def run_api_server():
     """Run the RESTful API server"""
     print(f"🚀 Starting Trading Data API Server...")
-    print(f"📍 Server: http://{settings.api_host}:{settings.api_port}")
-    print(f"📚 API Docs: http://{settings.api_host}:{settings.api_port}/docs")
-    print(f"📖 ReDoc: http://{settings.api_host}:{settings.api_port}/redoc")
+    print(f"📍 Server: http://{settings.API_HOST}:{settings.API_PORT}")
+    print(f"📚 API Docs: http://{settings.API_HOST}:{settings.API_PORT}/docs")
+    print(f"📖 ReDoc: http://{settings.API_HOST}:{settings.API_PORT}/redoc")
     
     uvicorn.run(
         "api.app:app",
-        host=settings.api_host,
-        port=settings.api_port,
+        host=settings.API_HOST,
+        port=settings.API_PORT,
         reload=True,
         log_level="info"
     )
@@ -31,14 +31,14 @@ def run_api_server():
 def run_mcp_server():
     """Run the MCP server"""
     print(f"🚀 Starting Trading Data MCP Server...")
-    print(f"📡 MCP Server: {settings.mcp_server_name}")
-    print(f"📍 HTTP Server: http://{settings.mcp_host}:{settings.mcp_port}")
-    print(f"🔌 MCP Endpoint: http://{settings.mcp_host}:{settings.mcp_port}/mcp/v1")
+    print(f"📡 MCP Server: {settings.MCP_SERVER_NAME}")
+    print(f"📍 HTTP Server: http://{settings.MCP_HOST}:{settings.MCP_PORT}")
+    print(f"🔌 MCP Endpoint: http://{settings.MCP_HOST}:{settings.MCP_PORT}/mcp/v1")
     print(f"ℹ️  Transport: Streamable HTTP")
     
     from mcp_server.server import run_mcp_http_server
     
-    run_mcp_http_server(host=settings.mcp_host, port=settings.mcp_port)
+    run_mcp_http_server(host=settings.MCP_HOST, port=settings.MCP_PORT)
 
 
 def main():

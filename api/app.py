@@ -8,9 +8,9 @@ def create_app() -> FastAPI:
     """Create and configure FastAPI application"""
     
     app = FastAPI(
-        title=settings.api_title,
-        version=settings.api_version,
-        description=settings.api_description,
+        title=settings.API_TITLE,
+        version=settings.API_VERSION,
+        description=settings.API_DESCRIPTION,
         docs_url="/docs",
         redoc_url="/redoc"
     )
@@ -18,7 +18,7 @@ def create_app() -> FastAPI:
     # Add CORS middleware
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.cors_origins,
+        allow_origins=settings.CORS_ORIGINS,
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
@@ -31,8 +31,8 @@ def create_app() -> FastAPI:
     @app.get("/")
     async def root():
         return {
-            "name": settings.api_title,
-            "version": settings.api_version,
+            "name": settings.API_TITLE,
+            "version": settings.API_VERSION,
             "docs": "/docs",
             "status": "running"
         }
